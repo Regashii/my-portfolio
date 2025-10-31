@@ -1,0 +1,112 @@
+$bg-color: #39bda7;
+
+.aboutmain {
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  height: auto;
+  padding-top: 2rem;
+}
+
+.programming-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 1500px;
+  margin: 0px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.embedded-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 1500px;
+  margin: 0px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  h2 {
+    color: #00c896; /* teal/green accent to distinguish it */
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.card-content {
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: black;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    text-align: justify;
+  }
+}
+
+/* Grid of skill logos */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.skill-item {
+  display: flex;
+  //   flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+  padding: 10px;
+  width: 120px;
+  border-radius: 100px;
+
+  img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+    padding-left: 10px;
+    padding-top: 5px;
+  }
+
+  span {
+    font-size: 0.9rem;
+    color: white;
+    font-weight: 500;
+    height: 100%;
+    width: 100%;
+  }
+  &:hover img {
+    transform: scale(1.1);
+  }
+}
+
+.underline {
+  width: 100%;
+  height: 4px;
+  background-color: #39bda7;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
