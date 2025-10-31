@@ -8,22 +8,22 @@ export default function AppBar() {
     {
       id: 1,
       name: "Home",
-      path: "/",
+      path: "/my-portfolio/",
     },
     {
       id: 2,
       name: "Projects",
-      path: "/projects",
+      path: "/my-portfolio/projects",
     },
     {
       id: 3,
       name: "About",
-      path: "/about",
+      path: "/my-portfolio/about",
     },
     {
       id: 4,
       name: "Contact",
-      path: "/contact",
+      path: "/my-portfolio/contact",
     },
   ];
   return (
@@ -46,7 +46,6 @@ export default function AppBar() {
               {" "}
               {page.name}
             </NavLink>
-            {/* <Link to={page.path}>{page.name}</Link> */}
           </li>
         ))}
       </ul>
