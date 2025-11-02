@@ -8,22 +8,22 @@ export default function AppBar() {
     {
       id: 1,
       name: "Home",
-      path: "/my-portfolio/",
+      path: "/my-portfolio",
     },
     {
       id: 2,
       name: "Projects",
-      path: "/my-portfolio/projects",
+      path: "/projects",
     },
     {
       id: 3,
       name: "About",
-      path: "/my-portfolio/about",
+      path: "/about",
     },
     {
       id: 4,
       name: "Contact",
-      path: "/my-portfolio/contact",
+      path: "/contact",
     },
   ];
   return (
@@ -43,7 +43,6 @@ export default function AppBar() {
               to={page.path}
               className={({ isActive }) => (isActive ? "a active" : "a")}
             >
-              {" "}
               {page.name}
             </NavLink>
           </li>

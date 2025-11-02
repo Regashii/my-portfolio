@@ -1,9 +1,6 @@
 // src/styles/AppBar.scss
-
-// 🎨 Variables
-$primary-color: #4f46e5;
-$text-color: white;
-$bg-color: #000000;
+$text-color: rgb(79, 205, 255);
+$bg-color: #0d1117;
 
 // 📱 Base styles
 nav {
@@ -23,9 +20,9 @@ nav {
   }
 
   header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
-    color: #39bda7;
+    color: $text-color;
     cursor: pointer;
   }
 
@@ -56,13 +53,13 @@ nav {
           bottom: -3px;
           width: 100%;
           height: 2px;
-          background-color: #39bda7;
+          background-color: $text-color;
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 0.3s ease;
         }
         &:hover {
-          color: #39bda7;
+          color: $text-color;
         }
 
         &:hover::after {
@@ -74,7 +71,7 @@ nav {
         }
 
         &.active {
-          color: #39bda7;
+          color: $text-color;
         }
       }
     }

@@ -11,9 +11,12 @@ export default function Home() {
 
         <section className="intro">
           <header>
-            <h1 className="first-name">HELLO, IT'S CED</h1>
-            {/* <h1 className="last-name">ABINES</h1> */}
-            <h2>Computer Engineer</h2>
+            <h1 className="first-name">
+              HELLO, IT'S <span>CED</span>
+            </h1>
+            <h2>
+              I'am a <span>Computer Engineer</span>
+            </h2>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
               neque totam officia voluptatem quia excepturi aspernatur,
