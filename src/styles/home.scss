@@ -109,3 +109,150 @@ $text-color: white;
     }
   }
 }
+
+/* Modal overlay background */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+
+/* Modal box */
+.modal-content {
+  background: #ffffff;
+  color: #000;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 80%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+
+  h2 {
+    margin-bottom: 1rem;
+    color: #0d1117;
+  }
+
+  .resume-preview {
+    width: 100%;
+    height: 70vh;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .download-btn {
+    margin-top: 1rem;
+    background-color: rgb(79, 205, 255);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #00b4d8;
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #ff4d4d;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .home {
+    flex-direction: column-reverse;
+    height: auto;
+    text-align: center;
+
+    .intro {
+      width: 95vw;
+      padding: 20px;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      button {
+        font-size: 1rem;
+      }
+    }
+
+    .image-section {
+      width: 100%;
+      img {
+        width: 80%;
+      }
+    }
+  }
+
+  .modal-content {
+    width: 90%;
+    .resume-preview {
+      height: 60vh;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  .intro h2 {
+    font-size: 1.2rem;
+  }
+
+  .intro p {
+    font-size: 0.95rem;
+  }
+
+  .modal-content {
+    padding: 1rem;
+  }
+
+  // .download-btn {
+  //   width: 100%;
+  // }
+}

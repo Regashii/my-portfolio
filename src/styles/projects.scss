@@ -1,18 +1,25 @@
+@use "sass:color";
+
 $bg-color: #0d1117;
 $text-color: #ffffff;
 
 .projectmain {
   display: flex;
   justify-content: center;
-  height: 90vh;
+  align-items: flex-start;
+  min-height: 90vh;
   background: $bg-color;
+  padding: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 
   aside {
-    max-height: 300px;
+    flex: 1 1 250px;
+    max-width: 280px;
     margin-top: 50px;
 
     h4 {
-      font-size: 20px;
+      font-size: 1.4rem;
       margin-bottom: 20px;
       color: $text-color;
     }
@@ -26,29 +33,43 @@ $text-color: #ffffff;
 }
 
 .projectdetails {
+  flex: 2 1 700px;
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  max-width: auto;
-
   margin-top: 50px;
+  width: 100%;
 
   .divproject {
     background: #1a1a1a;
     padding: 2rem;
     border-radius: 16px;
-    max-width: 900px;
     color: #fff;
     text-align: justify;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     margin: 0 auto;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
 
     h1 {
       font-size: 1.8rem;
       margin-top: 1rem;
+
+      a {
+        color: rgb(79, 205, 255);
+        font-size: 1rem;
+        text-decoration: underline;
+        margin-left: 8px;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: color.scale(rgb(79, 205, 255), $lightness: 15%);
+        }
+      }
     }
 
     p {
+      margin-top: 10px;
       line-height: 1.6;
       color: #ddd;
     }
@@ -129,12 +150,10 @@ $text-color: #ffffff;
   }
 }
 
+/* Radio container */
 .radio-container {
   --main-color: rgb(79, 205, 255);
-  //   --main-color: #f7e479;
   --main-color-opacity: #f7e4791c;
-
-  /* change this according inputs count */
   --total-radio: 5;
 
   display: flex;
@@ -204,49 +223,100 @@ $text-color: #ffffff;
     position: relative;
     color: $text-color;
     transition: all 0.3s ease-in-out;
+    font-size: 1rem;
   }
 
   input:checked + label {
     color: var(--main-color);
   }
 
-  input:nth-of-type(1):checked ~ .glider-container .glider {
-    transform: translateY(0);
+  /* Glider animation */
+  @for $i from 1 through 10 {
+    input:nth-of-type(#{$i}):checked ~ .glider-container .glider {
+      transform: translateY(#{($i - 1) * 100%});
+    }
+  }
+}
+
+/* ========== RESPONSIVENESS ========== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .projectmain {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
   }
 
-  input:nth-of-type(2):checked ~ .glider-container .glider {
-    transform: translateY(100%);
+  aside {
+    width: 100%;
+    text-align: center;
+
+    .radio-container {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      label {
+        padding: 0.8rem 1.2rem;
+      }
+
+      .glider-container {
+        display: none; // hide the glowing line on mobile for simplicity
+      }
+    }
   }
 
-  input:nth-of-type(3):checked ~ .glider-container .glider {
-    transform: translateY(200%);
+  .projectdetails {
+    margin-left: 0;
+    max-width: 95%;
   }
 
-  input:nth-of-type(4):checked ~ .glider-container .glider {
-    transform: translateY(300%);
+  .carousel-image {
+    height: 350px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .projectmain {
+    padding: 1rem;
   }
 
-  input:nth-of-type(5):checked ~ .glider-container .glider {
-    transform: translateY(400%);
+  .divproject {
+    padding: 1rem !important;
+
+    h1 {
+      font-size: 1.3rem !important;
+    }
+
+    p {
+      font-size: 0.9rem !important;
+    }
+
+    .carousel-image {
+      height: 250px !important;
+    }
+
+    button {
+      font-size: 1.5rem !important;
+      width: 32px !important;
+      height: 32px !important;
+    }
+
+    .carousel-dots .dot {
+      width: 10px !important;
+      height: 10px !important;
+    }
   }
 
-  input:nth-of-type(6):checked ~ .glider-container .glider {
-    transform: translateY(500%);
-  }
+  .radio-container {
+    flex-direction: column;
+    align-items: center;
 
-  input:nth-of-type(7):checked ~ .glider-container .glider {
-    transform: translateY(600%);
-  }
-
-  input:nth-of-type(8):checked ~ .glider-container .glider {
-    transform: translateY(700%);
-  }
-
-  input:nth-of-type(9):checked ~ .glider-container .glider {
-    transform: translateY(800%);
-  }
-
-  input:nth-of-type(10):checked ~ .glider-container .glider {
-    transform: translateY(900%);
+    label {
+      font-size: 0.9rem;
+      padding: 0.6rem;
+    }
   }
 }

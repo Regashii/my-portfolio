@@ -1,6 +1,15 @@
 import { useState } from "react";
 import {
   cisco1,
+  cisco10,
+  cisco2,
+  cisco3,
+  cisco4,
+  cisco5,
+  cisco6,
+  cisco7,
+  cisco8,
+  cisco9,
   ecommerce1,
   ecommerce2,
   ecommerce3,
@@ -9,6 +18,12 @@ import {
   ecommerce6,
   ecommerce7,
   ecommerce8,
+  home1,
+  home2,
+  home3,
+  home4,
+  home5,
+  home6,
   mobile1,
   mobile2,
   mobile3,
@@ -26,7 +41,7 @@ export default function Projects() {
       id: 1,
       title: "Baked Goodies Web Application",
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod aspernatur sit, ab error fugiat earum eveniet. Sint, quis recusandae sunt laudantium tempora nemo, dicta voluptates nulla sequi labore, architecto est earum soluta delectus amet minus deleniti laboriosam similique corporis expedita magni at? Odio, voluptatem consectetur nulla velit sint repudiandae ducimus optio repellendus ipsam quibusdam sequi earum dicta ipsum laborum, ut tempore recusandae quaerat iusto corrupti. Doloribus exercitationem quisquam architecto neque sapiente, harum soluta dignissimos perspiciatis, similique quo voluptatem et, molestias asperiores nemo non voluptate voluptates rem in voluptatum culpa enim nihil quas obcaecati? Vitae eius voluptates, fuga dolor tempore, laboriosam molestiae dicta aliquid voluptas iure nisi aut non sunt magnam odit dignissimos fugit! Vel dolores reiciendis omnis officia repellat fuga saepe? Et id aperiam ex, tempora",
+        "For our academic project, our team developed an e-commerce web application for a client who wanted to sell custom cakes online. Using the MERN stack (MongoDB, Express, React, Node.js), we built a platform that allows customers to customize their cake orders, set deadlines, and make online payments, while the client can manage and track orders through a secure dashboard. As a co-lead developer, I was responsible for creating the client-side interface, including the login system, dashboard, and order management features. Throughout the project, we implemented key functionalities such as authentication tokens, cookies, email notifications, image storage, and real-time updates, gaining valuable hands-on experience in building a complete and functional web application.",
       images: [
         ecommerce1,
         ecommerce2,
@@ -37,34 +52,48 @@ export default function Projects() {
         ecommerce7,
         ecommerce8,
       ],
+      linktosite: "https://client-side-bakegoodies.vercel.app/",
     },
     {
       id: 2,
-      title: "Thesis Design (Robotic Arm)",
+      title:
+        "Robotic Arm for Waste Collection in Hard to Maintain Area (Thesis)",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus repudiandae illum aliquid minima eaque beatae odit sit alias, maiores ducimus dignissimos dolor sed quae commodi fugiat hic repellat fuga perferendis?",
+        "Our team developed a prototype designed to collect waste in locations that are difficult to access manually. I was responsible for creating and designing the mobile application used to control the robot, testing components, and designing the schematic and PCB layout. I also trained a YOLO model for object detection, configured the Raspberry Pi 5, and implemented MQTT communication between the prototype and the mobile app with Firebase integration for real-time data storage and updates. This project strengthened my skills in IoT integration, embedded systems, and intelligent automation.",
       images: [thesis1, mobile1, mobile2, mobile3],
     },
     {
       id: 3,
       title: "Automatic Speed Fan",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus repudiandae illum aliquid minima eaque beatae odit sit alias, maiores ducimus dignissimos dolor sed quae commodi fugiat hic repellat fuga perferendis?",
-      images: [speed1, speed2],
+        "For this project, we designed and built an Automatic Speed Fan system that adjusts the fan’s speed based on the surrounding temperature. Using a temperature sensor, the system continuously monitors the environment and automatically increases or decreases the fan speed to maintain a comfortable temperature level. This project helped us understand sensor integration, automation control, and the practical application of microcontrollers in creating energy-efficient systems.",
+      images: [speed2, speed1],
     },
     {
       id: 4,
       title: "Cisco Pocket Network Project",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus repudiandae illum aliquid minima eaque beatae odit sit alias, maiores ducimus dignissimos dolor sed quae commodi fugiat hic repellat fuga perferendis?",
-      images: [cisco1],
+        "We designed and simulated a multi-building network system that connects several departments, including Administration, HR, Engineering, and Marketing. Each building contains multiple PCs, laptops, and printers interconnected through switches and routers to form a secure and efficient local area network (LAN). We configured essential network services such as DHCP, DNS, and Email servers, enabling dynamic IP assignment, domain name resolution, and internal communication. The project demonstrated our understanding of network topology design, IP addressing, routing, and interconnectivity, ensuring reliable communication across all buildings within the simulated organization.",
+      images: [
+        cisco1,
+        cisco2,
+        cisco3,
+        cisco4,
+        cisco5,
+        cisco6,
+        cisco7,
+        cisco8,
+        cisco9,
+        cisco10,
+      ],
     },
     {
       id: 5,
       title: "Home Page Assessment Project",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus repudiandae illum aliquid minima eaque beatae odit sit alias, maiores ducimus dignissimos dolor sed quae commodi fugiat hic repellat fuga perferendis?",
-      images: [ecommerce2],
+        "I was given an assignment by a potential client to revamp their website’s home page as part of an application process. Although I was not among the shortlisted candidates, the project provided valuable hands-on experience and helped me improve my web development skills. Using raw HTML, CSS, and JavaScript, I redesigned the layout and enhanced the visual appeal and functionality of the home page to create a more user-friendly and responsive design that aligned with the client’s branding and goals.",
+      images: [home1, home2, home3, home4, home5, home6],
+      linktosite: "https://home-project-cyan.vercel.app/",
     },
   ];
   return (
@@ -121,17 +150,19 @@ export default function Projects() {
           {projectsContent.map((project) =>
             activeIndex === project.id ? (
               <div key={project.id} className="divproject">
-                {/* <div className="image-gallery">
-                  {project.images.map((imgSrc, index) => (
-                    <img
-                      key={index}
-                      src={imgSrc}
-                      alt={`${project.title} ${index + 1}`}
-                    />
-                  ))}
-                </div> */}
                 <Carousel project={project} />
-                <h1>{project.title}</h1>
+                <h1>
+                  {project.title}{" "}
+                  {project.linktosite ? (
+                    <a
+                      href={project.linktosite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      (go to the site)
+                    </a>
+                  ) : null}
+                </h1>
                 <p>{project.description}</p>
               </div>
             ) : null

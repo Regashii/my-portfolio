@@ -206,7 +206,7 @@ export default function AboutMe() {
 
       {/* Seminars Section */}
       <section className="info-card seminar">
-        <h2>Seminars & Trainings</h2>
+        <h2>Seminars</h2>
         <div className="underline"></div>
         <div className="seminar-card">
           <h3>{seminars[seminarIndex].title}</h3>
