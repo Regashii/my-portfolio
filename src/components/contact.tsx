@@ -1,6 +1,6 @@
 import {
   Facebook,
-  Globe,
+  Github,
   Instagram,
   Linkedin,
   Mail,
@@ -88,7 +88,11 @@ export default function Contact() {
           >
             <Facebook />
           </a>
-          <a href="" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.instagram.com/jhncd10/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Instagram />
           </a>
           <a
@@ -99,11 +103,11 @@ export default function Contact() {
             <Linkedin />
           </a>
           <a
-            href="https://profile.indeed.com/?hl=en_PH&co=PH&from=gnav-homepage"
+            href="https://github.com/Regashii"
             target="_blank"
             rel="noreferrer"
           >
-            <Globe />
+            <Github />
           </a>
         </div>
       </aside>

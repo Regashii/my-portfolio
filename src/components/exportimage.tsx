@@ -16,12 +16,20 @@ import ecommerce5 from "../assets/ecommerce/ecommerce5.png";
 import ecommerce6 from "../assets/ecommerce/ecommerce6.png";
 import ecommerce7 from "../assets/ecommerce/ecommerce7.png";
 import ecommerce8 from "../assets/ecommerce/ecommerce8.png";
+import game1 from "../assets/games/game1.png";
+import game2 from "../assets/games/game2.png";
+import game3 from "../assets/games/game3.png";
 import home1 from "../assets/home/home1.png";
 import home2 from "../assets/home/home2.png";
 import home3 from "../assets/home/home3.png";
 import home4 from "../assets/home/home4.png";
 import home5 from "../assets/home/home5.png";
 import home6 from "../assets/home/home6.png";
+import seminar1 from "../assets/seminars/seminar1.jpg";
+import seminar2 from "../assets/seminars/seminar2.jpg";
+import seminar3 from "../assets/seminars/seminar3.jpg";
+import seminar4 from "../assets/seminars/seminar4.jpg";
+import seminar5 from "../assets/seminars/seminar5.jpg";
 import speed1 from "../assets/speed/speed1.png";
 import speed2 from "../assets/speed/speed2.jpg";
 import mobile1 from "../assets/thesis/mobile1.jpg";
@@ -48,6 +56,9 @@ export {
   ecommerce6,
   ecommerce7,
   ecommerce8,
+  game1,
+  game2,
+  game3,
   home1,
   home2,
   home3,
@@ -57,6 +68,11 @@ export {
   mobile1,
   mobile2,
   mobile3,
+  seminar1,
+  seminar2,
+  seminar3,
+  seminar4,
+  seminar5,
   speed1,
   speed2,
   thesis1,

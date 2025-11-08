@@ -1,3 +1,11 @@
+import {
+  seminar1,
+  seminar2,
+  seminar3,
+  seminar4,
+  seminar5,
+} from "../components/exportimage.tsx";
+
 import { useState } from "react";
 import sensors from "../assets/sensors.png";
 import soldering from "../assets/soldering.jpg";
@@ -14,6 +22,7 @@ export default function AboutMe() {
         "Explored innovations in the Internet of Things (IoT) and robotics, focusing on designing inclusive and adaptive automation systems using sensors and microcontrollers.",
       date: "October 2021",
       organizer: "CCS",
+      seminarImage: seminar1,
     },
     {
       title: "An Overview of Digital Threats and Best Practices",
@@ -21,6 +30,7 @@ export default function AboutMe() {
         "Gained foundational knowledge of cybersecurity concepts, data privacy, and best practices to prevent common online threats and vulnerabilities.",
       date: "November 2021",
       organizer: "CCS",
+      seminarImage: seminar2,
     },
     {
       title: "Going Online and Beyond: An Introduction to Cloud Computing",
@@ -28,6 +38,7 @@ export default function AboutMe() {
         "Learned how cloud technologies enable scalable, remote computing — including the basics of cloud storage, deployment, and virtual machines.",
       date: "November 2021",
       organizer: "CCS",
+      seminarImage: seminar3,
     },
     {
       title: "Basic Web Development",
@@ -35,6 +46,7 @@ export default function AboutMe() {
         "Developed a basic understanding of HTML, CSS, and JavaScript for creating responsive and interactive websites from scratch.",
       date: "March 2024",
       organizer: "DICT",
+      seminarImage: seminar4,
     },
     {
       title:
@@ -43,14 +55,7 @@ export default function AboutMe() {
         "Learned about artificial intelligence integrations and machine learning in modern software and robotics.",
       date: "March 2024",
       organizer: "The ABBA Initiative",
-    },
-    {
-      title:
-        "Discovered practical methods to secure networks and systems, such as strong authentication, firewalls, and data encryption.",
-      description:
-        "Understood how to recognize phishing, malware, and social engineering attacks, and learned preventive habits for digital safety.",
-      date: "March 2024",
-      organizer: "DICT",
+      seminarImage: seminar5,
     },
   ];
 
@@ -209,6 +214,7 @@ export default function AboutMe() {
         <h2>Seminars</h2>
         <div className="underline"></div>
         <div className="seminar-card">
+          <img src={seminars[seminarIndex].seminarImage} />
           <h3>{seminars[seminarIndex].title}</h3>
           <p className="seminar-desc">{seminars[seminarIndex].description}</p>
           <p className="seminar-meta">

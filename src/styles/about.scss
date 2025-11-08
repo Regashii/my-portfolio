@@ -169,6 +169,14 @@ $text-color: rgb(79, 205, 255);
   }
 }
 
+.seminar img {
+  width: 80%;
+  max-height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
