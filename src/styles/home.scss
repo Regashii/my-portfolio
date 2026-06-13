@@ -1,6 +1,10 @@
 $button-bg-color: rgb(79, 205, 255);
 $text-color: white;
 
+svg {
+  color: rgb(79, 205, 255);
+}
+
 .home {
   display: flex;
   background: #0d1117;
@@ -32,6 +36,90 @@ $text-color: white;
       margin-top: 20px;
       font-size: 1.2rem;
       line-height: 1.5;
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        svg {
+          color: rgb(79, 205, 255);
+        }
+
+        span {
+          color: white;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+          background-color: rgba(79, 205, 255, 0.1);
+          border: 2px solid rgb(79, 205, 255);
+          border-radius: 50%;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgb(79, 205, 255);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            z-index: -1;
+          }
+
+          &:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 16px rgba(79, 205, 255, 0.3);
+
+            &::before {
+              transform: scale(1);
+            }
+
+            svg {
+              color: white;
+            }
+          }
+
+          svg {
+            width: 24px;
+            height: 24px;
+            color: rgb(79, 205, 255);
+            transition: color 0.3s ease;
+            z-index: 1;
+          }
+        }
+      }
+    }
+
+    .contact-info {
+      margin-top: 20px;
+      display: flex;
     }
 
     button {

@@ -1,7 +1,18 @@
+import {
+  Facebook,
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+} from "lucide-react";
 import { useState } from "react";
+import resumePDF from "../assets/CED-RESUME.pdf"; // your actual PDF file
 import homeImage from "../assets/homeimage-rbg.png";
-import resumePDF from "../assets/Resume - John Cedrick Abines.pdf"; // your actual PDF file
 import "../styles/home.scss";
+import AboutMe from "./about";
+import AppBar from "./appbar";
+import Projects from "./projects";
 
 export default function Home() {
   const [showResume, setShowResume] = useState(false);
@@ -11,7 +22,8 @@ export default function Home() {
 
   return (
     <>
-      <main className="home">
+      <AppBar />
+      <main className="home" id="home">
         <section className="image-section">
           <img src={homeImage} alt="home-image" />
         </section>
@@ -24,6 +36,7 @@ export default function Home() {
             <h2>
               I'am a <span>Computer Engineer</span>
             </h2>
+
             <p>
               Passionate Computer Engineering graduate with hands-on experience
               in web development, embedded systems, and networking. Skilled in
@@ -37,6 +50,46 @@ export default function Home() {
             <button className="resume-btn" onClick={handleOpenResume}>
               Resume
             </button>
+            <aside className="contact-info">
+              <div className="social-links">
+                <a
+                  href="https://www.facebook.com/Jced1510"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Facebook />
+                </a>
+                <a
+                  href="https://www.instagram.com/jhncd10/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Instagram />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/john-cedrick-abines-384325378/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Linkedin />
+                </a>
+                <a
+                  href="https://github.com/Regashii"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Github />
+                </a>
+              </div>
+            </aside>
+          </div>
+          <div className="contact-info">
+            <div className="info-item">
+              <Mail /> <span>cedrickabines15@gmail.com</span>
+            </div>
+            <div className="info-item">
+              <Phone /> <span>+63 964 995 8624</span>
+            </div>
           </div>
         </section>
       </main>
@@ -67,6 +120,13 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      <div id="projects">
+        <Projects />
+      </div>
+      <div id="about">
+        <AboutMe />
+      </div>
     </>
   );
 }

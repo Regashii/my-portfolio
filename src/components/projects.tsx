@@ -21,12 +21,6 @@ import {
   game1,
   game2,
   game3,
-  home1,
-  home2,
-  home3,
-  home4,
-  home5,
-  home6,
   mobile1,
   mobile2,
   mobile3,
@@ -92,14 +86,6 @@ export default function Projects() {
     },
     {
       id: 5,
-      title: "Home Page Assessment Project phil",
-      description:
-        "I was given an assignment by a potential client to revamp their website’s home page as part of an application process. Although I was not among the shortlisted candidates, the project provided valuable hands-on experience and helped me improve my web development skills. Using raw HTML, CSS, and JavaScript, I redesigned the layout and enhanced the visual appeal and functionality of the home page to create a more user-friendly and responsive design that aligned with the client’s branding and goals.",
-      images: [home1, home2, home3, home4, home5, home6],
-      linktosite: "https://home-project-cyan.vercel.app/",
-    },
-    {
-      id: 6,
       title: "Starting to learn Game Development",
       description:
         "I’m starting to learn game development, beginning with Scratch to understand the basics of logic, movement, and design. From there, I’m exploring platforms like Roblox Studio and Unity to gain experience in creating more advanced and interactive games.",
@@ -108,65 +94,55 @@ export default function Projects() {
   ];
   return (
     <>
-      <main className="projectmain">
-        <aside>
-          <h4>Projects</h4>
-          <div className="asidenav">
-            <div className="radio-container">
-              <input
-                defaultChecked
-                id="radio-ecommerce"
-                name="radio"
-                type="radio"
-                onClick={() => setActiveIndex(1)}
-              />
-              <label htmlFor="radio-ecommerce">E-commerce Website</label>
-              <input
-                id="radio-thesis"
-                name="radio"
-                type="radio"
-                onClick={() => setActiveIndex(2)}
-              />
-              <label htmlFor="radio-thesis">Thesis design</label>
-              <input
-                id="radio-speedfan"
-                name="radio"
-                type="radio"
-                onClick={() => setActiveIndex(3)}
-              />
-              <label htmlFor="radio-speedfan">Automatic speed fan</label>
-              <input
-                id="radio-cisco"
-                name="radio"
-                type="radio"
-                onClick={() => setActiveIndex(4)}
-              />
-              <label htmlFor="radio-cisco">Cisco pocket project</label>
-              <input
-                id="radio-assessment"
-                name="radio"
-                type="radio"
-                onClick={() => setActiveIndex(5)}
-              />
-              <label htmlFor="radio-assessment">Assessment project</label>
-              <input
-                id="radio-game"
-                name="radio"
-                type="radio"
-                onClick={() => setActiveIndex(6)}
-              />
-              <label htmlFor="radio-game">Game Development</label>
-              <div className="glider-container">
-                <div className="glider" />
-              </div>
-            </div>
+      <nav className="projects-nav">
+        <div className="radio-container">
+          <input
+            defaultChecked
+            id="radio-ecommerce"
+            name="radio"
+            type="radio"
+            onClick={() => setActiveIndex(1)}
+          />
+          <label htmlFor="radio-ecommerce">E-commerce Website</label>
+          <input
+            id="radio-thesis"
+            name="radio"
+            type="radio"
+            onClick={() => setActiveIndex(2)}
+          />
+          <label htmlFor="radio-thesis">Thesis design</label>
+          <input
+            id="radio-speedfan"
+            name="radio"
+            type="radio"
+            onClick={() => setActiveIndex(3)}
+          />
+          <label htmlFor="radio-speedfan">Automatic speed fan</label>
+          <input
+            id="radio-cisco"
+            name="radio"
+            type="radio"
+            onClick={() => setActiveIndex(4)}
+          />
+          <label htmlFor="radio-cisco">Cisco pocket project</label>
+          <input
+            id="radio-assessment"
+            name="radio"
+            type="radio"
+            onClick={() => setActiveIndex(5)}
+          />
+          <label htmlFor="radio-assessment">Game Development</label>
+          <div className="glider-container">
+            <div className="glider" />
           </div>
-        </aside>
-
+        </div>
+      </nav>
+      <main className="projectmain">
         <section className="projectdetails">
           {projectsContent.map((project) =>
             activeIndex === project.id ? (
               <div key={project.id} className="divproject">
+                <h4>Projects</h4>
                 <Carousel project={project} />
                 <h1>
                   {project.title}{" "}
@@ -182,7 +158,7 @@ export default function Projects() {
                 </h1>
                 <p>{project.description}</p>
               </div>
-            ) : null
+            ) : null,
           )}
         </section>
       </main>

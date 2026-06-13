@@ -1,59 +1,4 @@
-// import { useState } from "react";
-// import { NavLink } from "react-router-dom";
-// import "../styles/AppBar.scss"; // import SCSS file
-// export default function AppBar() {
-//   const [menuOpen, setMenuOpen] = useState(false);
-
-//   const routerPage = [
-//     {
-//       id: 1,
-//       name: "Home",
-//       path: "/my-portfolio",
-//     },
-//     {
-//       id: 2,
-//       name: "Projects",
-//       path: "/projects",
-//     },
-//     {
-//       id: 3,
-//       name: "About",
-//       path: "/about",
-//     },
-//     {
-//       id: 4,
-//       name: "Contact",
-//       path: "/contact",
-//     },
-//   ];
-//   return (
-//     <nav>
-//       <header>
-//         <h1>Cedrick Abines</h1>
-//       </header>
-
-//       <div className="menu-toggle" onClick={() => setMenuOpen((prev) => !prev)}>
-//         ☰
-//       </div>
-
-//       <ul className={menuOpen ? "active" : ""}>
-//         {routerPage.map((page) => (
-//           <li key={page.id}>
-//             <NavLink
-//               to={page.path}
-//               className={({ isActive }) => (isActive ? "a active" : "a")}
-//             >
-//               {page.name}
-//             </NavLink>
-//           </li>
-//         ))}
-//       </ul>
-//     </nav>
-//   );
-// }
-
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import "../styles/AppBar.scss";
 
 export default function AppBar() {
@@ -64,12 +9,22 @@ export default function AppBar() {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
 
-  const routerPage = [
-    { id: 1, name: "Home", path: "/my-portfolio" },
-    { id: 2, name: "Projects", path: "/projects" },
-    { id: 3, name: "About", path: "/about" },
-    { id: 4, name: "Contact", path: "/contact" },
+  const navLinks = [
+    { id: 1, name: "Home", sectionId: "home" },
+    { id: 2, name: "Projects", sectionId: "projects" },
+    { id: 3, name: "About", sectionId: "about" },
   ];
+
+  const scrollToSection = (sectionId: string) => {
+    // Use setTimeout to ensure DOM is ready
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+    setMenuOpen(false); // Close menu after clicking
+  };
 
   return (
     <>
@@ -86,15 +41,14 @@ export default function AppBar() {
         </div>
 
         <ul className={menuOpen ? "active" : ""}>
-          {routerPage.map((page) => (
-            <li key={page.id}>
-              <NavLink
-                to={page.path}
-                onClick={() => setMenuOpen(false)} // close menu when navigating
-                className={({ isActive }) => (isActive ? "a active" : "a")}
+          {navLinks.map((link) => (
+            <li key={link.id}>
+              <button
+                className="nav-link"
+                onClick={() => scrollToSection(link.sectionId)}
               >
-                {page.name}
-              </NavLink>
+                {link.name}
+              </button>
             </li>
           ))}
         </ul>

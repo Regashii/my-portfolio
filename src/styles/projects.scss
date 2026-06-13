@@ -6,38 +6,37 @@ $text-color: #ffffff;
 .projectmain {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   min-height: 90vh;
   background: $bg-color;
-  padding: 2rem;
+  padding: 2rem 1rem;
   gap: 2rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
 
-  aside {
-    flex: 1 1 250px;
-    max-width: 280px;
-    margin-top: 50px;
-
-    h4 {
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-      color: $text-color;
-    }
-  }
-
-  .asidenav {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
+.projects-nav {
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(79, 205, 255, 0.2);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .projectdetails {
-  flex: 2 1 700px;
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
   width: 100%;
+  margin-top: 0;
+  max-width: 1200px;
+  box-sizing: border-box;
 
   .divproject {
     background: #1a1a1a;
@@ -48,7 +47,7 @@ $text-color: #ffffff;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     margin: 0 auto;
     width: 100%;
-    max-width: 900px;
+    max-width: 1150px;
     box-sizing: border-box;
 
     h1 {
@@ -81,19 +80,21 @@ $text-color: #ffffff;
       align-items: center;
 
       .carousel-image {
-        width: 100%;
-        max-width: 800px;
-        height: 450px;
+        width: 80%;
+        height: 500px;
         overflow: hidden;
         border-radius: 12px;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        margin-bottom: 10px;
+        box-shadow: 0 4px 30px rgba(79, 205, 255, 0.15);
+        margin-bottom: 15px;
+        animation: slideIn 0.6s ease-out;
 
         img {
           width: 100%;
           height: 100%;
           object-fit: contain;
-          transition: transform 0.5s ease, opacity 0.5s ease;
+          transition:
+            transform 0.5s ease,
+            opacity 0.5s ease;
         }
       }
 
@@ -153,13 +154,15 @@ $text-color: #ffffff;
 /* Radio container */
 .radio-container {
   --main-color: rgb(79, 205, 255);
-  --main-color-opacity: #f7e4791c;
-  --total-radio: 6;
+  --main-color-opacity: #4fcdff2a;
+  --total-radio: 5;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
-  padding-left: 0.5rem;
+  padding: 0;
+  gap: 0;
+  align-items: center;
 
   input {
     cursor: pointer;
@@ -168,73 +171,58 @@ $text-color: #ffffff;
 
   .glider-container {
     position: absolute;
+    bottom: -2px;
     left: 0;
-    top: 0;
-    bottom: 0;
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(27, 27, 27, 1) 50%,
-      rgba(0, 0, 0, 0) 100%
-    );
-    width: 1px;
+    right: 0;
+    height: 3px;
+    background: transparent;
 
     .glider {
-      position: relative;
-      height: calc(100% / var(--total-radio));
-      width: 100%;
+      position: absolute;
+      height: 100%;
+      width: 20%;
       background: linear-gradient(
-        0deg,
+        90deg,
         rgba(0, 0, 0, 0) 0%,
         var(--main-color) 50%,
         rgba(0, 0, 0, 0) 100%
       );
-      transition: transform 0.5s cubic-bezier(0.37, 1.95, 0.66, 0.56);
-
-      &::before {
-        content: "";
-        position: absolute;
-        height: 60%;
-        width: 300%;
-        top: 50%;
-        transform: translateY(-50%);
-        background: var(--main-color);
-        filter: blur(10px);
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        height: 100%;
-        width: 150px;
-        background: linear-gradient(
-          90deg,
-          var(--main-color-opacity) 0%,
-          rgba(0, 0, 0, 0) 100%
-        );
-      }
+      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 0 15px var(--main-color);
     }
   }
 
   label {
     cursor: pointer;
-    padding: 1rem;
+    padding: 0.8rem 1.5rem;
     position: relative;
     color: $text-color;
-    transition: all 0.3s ease-in-out;
-    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    white-space: nowrap;
   }
 
   input:checked + label {
     color: var(--main-color);
   }
 
-  /* Glider animation */
-  @for $i from 1 through 10 {
+  /* Glider animation for horizontal */
+  @for $i from 1 through 5 {
     input:nth-of-type(#{$i}):checked ~ .glider-container .glider {
-      transform: translateY(#{($i - 1) * 100%});
+      left: calc((#{$i} - 1) * 20%);
     }
+  }
+}
+
+/* Animation for carousel entrance */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -243,48 +231,75 @@ $text-color: #ffffff;
 /* Tablet */
 @media (max-width: 1024px) {
   .projectmain {
-    flex-direction: column;
-    align-items: center;
     padding: 1.5rem;
+    box-sizing: border-box;
   }
 
-  aside {
-    width: 100%;
-    text-align: center;
+  .projects-nav {
+    padding: 0.8rem 0.5rem;
+    box-sizing: border-box;
+  }
 
-    .radio-container {
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
+  .radio-container {
+    gap: 0 !important;
 
-      label {
-        padding: 0.8rem 1.2rem;
-      }
-
-      .glider-container {
-        display: none; // hide the glowing line on mobile for simplicity
-      }
+    label {
+      padding: 0.6rem 0.8rem !important;
+      font-size: 0.85rem !important;
     }
   }
 
-  .projectdetails {
-    margin-left: 0;
-    max-width: 95%;
-  }
-
   .carousel-image {
-    height: 350px !important;
+    width: 90% !important;
+    height: 400px !important;
   }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
   .projectmain {
-    padding: 1rem;
+    padding: 0;
+    gap: 0;
+    box-sizing: border-box;
+  }
+
+  .projects-nav {
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(79, 205, 255, 0.05);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(79, 205, 255, 0.3);
+      border-radius: 2px;
+
+      &:hover {
+        background: rgba(79, 205, 255, 0.5);
+      }
+    }
+  }
+
+  .projectdetails {
+    padding: 0;
+    margin-top: 0;
+    box-sizing: border-box;
   }
 
   .divproject {
     padding: 1rem !important;
+    border-radius: 0;
+    max-width: 100% !important;
+    margin: 0 !important;
 
     h1 {
       font-size: 1.3rem !important;
@@ -295,7 +310,8 @@ $text-color: #ffffff;
     }
 
     .carousel-image {
-      height: 250px !important;
+      width: 95% !important;
+      height: 280px !important;
     }
 
     button {
@@ -311,12 +327,22 @@ $text-color: #ffffff;
   }
 
   .radio-container {
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+    padding: 0.5rem 0;
 
     label {
-      font-size: 0.9rem;
-      padding: 0.6rem;
+      font-size: 0.75rem;
+      padding: 0.6rem 0.8rem !important;
+      flex-shrink: 0;
+    }
+
+    .glider-container {
+      width: 100%;
+      height: 2px;
+      bottom: 0;
     }
   }
 }

@@ -26,12 +26,17 @@ nav {
     transition: left 0.3s ease-in-out;
 
     li {
-      a {
+      .nav-link {
+        background: none;
+        border: none;
         text-decoration: none;
         color: white;
         font-size: 1.2rem;
         position: relative;
         transition: color 0.3s ease;
+        cursor: pointer;
+        font-family: inherit;
+        padding: 0;
 
         &::after {
           content: "";
@@ -50,13 +55,8 @@ nav {
           color: $text-color;
         }
 
-        &:hover::after,
-        &.active::after {
+        &:hover::after {
           transform: scaleX(1);
-        }
-
-        &.active {
-          color: $text-color;
         }
       }
     }
@@ -98,7 +98,7 @@ nav {
         width: 100%;
         padding: 1rem 0;
 
-        a {
+        .nav-link {
           font-size: 1.3rem;
           display: block;
           width: 100%;

@@ -6,13 +6,119 @@ import {
   seminar5,
 } from "../components/exportimage.tsx";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import sensors from "../assets/sensors.png";
 import soldering from "../assets/soldering.jpg";
 import "../styles/about.scss";
 
 export default function AboutMe() {
   const [seminarIndex, setSeminarIndex] = useState(0);
+  const [langIndex, setLangIndex] = useState(0);
+  const [frameworkIndex, setFrameworkIndex] = useState(0);
+  const [embeddedIndex, setEmbeddedIndex] = useState(0);
+  const [hardwareIndex, setHardwareIndex] = useState(0);
+
+  // Auto-rotate languages
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLangIndex((prev) => (prev + 1) % 6);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Auto-rotate frameworks
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFrameworkIndex((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Auto-rotate embedded systems
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setEmbeddedIndex((prev) => (prev + 1) % 5);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Auto-rotate hardware
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHardwareIndex((prev) => (prev + 1) % 2);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const languages = [
+    {
+      name: "Python",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    },
+    {
+      name: "C++",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+    },
+    {
+      name: "C#",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+    },
+    {
+      name: "JavaScript",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    },
+    {
+      name: "HTML",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    },
+    {
+      name: "CSS",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    },
+  ];
+
+  const frameworks = [
+    {
+      name: "React",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    },
+    {
+      name: "Dart",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+    },
+    {
+      name: "Java",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    },
+  ];
+
+  const embeddedSystems = [
+    {
+      name: "Arduino",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
+    },
+    {
+      name: "Raspberry Pi",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg",
+    },
+    {
+      name: "Proteus",
+      logo: "https://upload.wikimedia.org/wikipedia/en/5/5a/Proteus_Design_Suite_Atom_Logo.png",
+    },
+    {
+      name: "KiCad",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/KiCad-Logo.svg",
+    },
+    {
+      name: "Tinkercad",
+      logo: "https://www.mechabau.com/wp-content/uploads/Tinkercad-logo.png",
+    },
+  ];
+
+  const hardware = [
+    { name: "Soldering", logo: soldering },
+    { name: "Sensors", logo: sensors },
+  ];
 
   const seminars = [
     {
@@ -59,84 +165,6 @@ export default function AboutMe() {
     },
   ];
 
-  const coding = [
-    {
-      name: "Python",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-      bg: "#306998",
-    },
-    {
-      name: "C++",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
-      bg: "#00599C",
-    },
-    {
-      name: "C#",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
-      bg: "#68217A",
-    },
-    {
-      name: "JavaScript",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-      bg: "#F0DB4F",
-    },
-    {
-      name: "HTML",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-      bg: "#E34C26",
-    },
-    {
-      name: "CSS",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-      bg: "#264DE4",
-    },
-    {
-      name: "React",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-      bg: "#61DBFB",
-    },
-    {
-      name: "Dart",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
-      bg: "#0175C2",
-    },
-    {
-      name: "Java",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-      bg: "#f89820",
-    },
-  ];
-
-  const embedded = [
-    {
-      name: "Arduino",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
-      bg: "#00979D",
-    },
-    {
-      name: "Raspberry Pi",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg",
-      bg: "#C31A2F",
-    },
-    {
-      name: "Proteus",
-      logo: "https://upload.wikimedia.org/wikipedia/en/5/5a/Proteus_Design_Suite_Atom_Logo.png",
-      bg: "#1E90FF",
-    },
-    {
-      name: "KiCad",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/KiCad-Logo.svg",
-      bg: "#E94E1B",
-    },
-    {
-      name: "Tinkercad",
-      logo: "https://www.mechabau.com/wp-content/uploads/Tinkercad-logo.png",
-      bg: "#FF6F00",
-    },
-    { name: "Soldering", logo: soldering, bg: "#DAA520" },
-    { name: "Sensors", logo: sensors, bg: "#228B22" },
-  ];
-
   const nextSeminar = () =>
     setSeminarIndex((prev) => (prev + 1) % seminars.length);
   const prevSeminar = () =>
@@ -146,52 +174,92 @@ export default function AboutMe() {
     <main className="aboutmain">
       <header>About Me & Skills</header>
 
-      {/* Programming Section */}
-      <section className="info-card">
-        <h2>Programming</h2>
-        <div className="underline"></div>
-        <p>
-          Skilled in multiple programming languages and frameworks for web,
-          mobile, and automation projects. Continuously learning to integrate
-          creative and efficient solutions.
-        </p>
-        <div className="skills-grid">
-          {coding.map((lang) => (
-            <div
-              className="skill-item"
-              key={lang.name}
-              style={{
-                background: `linear-gradient(135deg, ${lang.bg}88, #111)`,
-              }}
+      {/* Skills Ovals Section */}
+      <section className="skills-ovals-container">
+        {/* Languages Oval */}
+        <div className="skill-oval">
+          <h3>Programming Languages</h3>
+          <p>Core languages for building robust and efficient applications</p>
+          <div className="oval-carousel">
+            <img
+              src={languages[langIndex].logo}
+              alt={languages[langIndex].name}
+            />
+            <span className="icon-name">{languages[langIndex].name}</span>
+            <button
+              className="rotate-btn"
+              onClick={() =>
+                setLangIndex((prev) => (prev + 1) % languages.length)
+              }
             >
-              <img src={lang.logo} alt={lang.name} />
-              <span>{lang.name}</span>
-            </div>
-          ))}
+              ↻
+            </button>
+          </div>
         </div>
-      </section>
 
-      {/* Embedded Systems Section */}
-      <section className="info-card">
-        <h2>Embedded Systems & Electronics</h2>
-        <div className="underline"></div>
-        <p>
-          Experienced in building and testing embedded systems, circuit design,
-          and hardware interfacing for automation and robotics projects.
-        </p>
-        <div className="skills-grid">
-          {embedded.map((tool) => (
-            <div
-              className="skill-item"
-              key={tool.name}
-              style={{
-                background: `linear-gradient(135deg, ${tool.bg}aa, #111)`,
-              }}
+        {/* Frameworks Oval */}
+        <div className="skill-oval">
+          <h3>Web & Mobile</h3>
+          <p>Modern frameworks for responsive and interactive applications</p>
+          <div className="oval-carousel">
+            <img
+              src={frameworks[frameworkIndex].logo}
+              alt={frameworks[frameworkIndex].name}
+            />
+            <span className="icon-name">{frameworks[frameworkIndex].name}</span>
+            <button
+              className="rotate-btn"
+              onClick={() =>
+                setFrameworkIndex((prev) => (prev + 1) % frameworks.length)
+              }
             >
-              <img src={tool.logo} alt={tool.name} />
-              <span>{tool.name}</span>
-            </div>
-          ))}
+              ↻
+            </button>
+          </div>
+        </div>
+
+        {/* Embedded Systems Oval */}
+        <div className="skill-oval">
+          <h3>Embedded Systems</h3>
+          <p>Tools and platforms for IoT and hardware development</p>
+          <div className="oval-carousel">
+            <img
+              src={embeddedSystems[embeddedIndex].logo}
+              alt={embeddedSystems[embeddedIndex].name}
+            />
+            <span className="icon-name">
+              {embeddedSystems[embeddedIndex].name}
+            </span>
+            <button
+              className="rotate-btn"
+              onClick={() =>
+                setEmbeddedIndex((prev) => (prev + 1) % embeddedSystems.length)
+              }
+            >
+              ↻
+            </button>
+          </div>
+        </div>
+
+        {/* Hardware & Tools Oval */}
+        <div className="skill-oval">
+          <h3>Hardware & Tools</h3>
+          <p>Practical skills in electronics and hardware assembly</p>
+          <div className="oval-carousel">
+            <img
+              src={hardware[hardwareIndex].logo}
+              alt={hardware[hardwareIndex].name}
+            />
+            <span className="icon-name">{hardware[hardwareIndex].name}</span>
+            <button
+              className="rotate-btn"
+              onClick={() =>
+                setHardwareIndex((prev) => (prev + 1) % hardware.length)
+              }
+            >
+              ↻
+            </button>
+          </div>
         </div>
       </section>
 
