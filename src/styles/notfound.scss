@@ -1,12 +1,14 @@
 @use "sass:color";
 
-$bg-color: #0d1117;
-$text-color: rgb(79, 205, 255);
+$bg-color: #ffffff;
+$text-color: #8b6f5a;
+$body-text: #111111;
+$muted-text: #4c4641;
 
 .notfound {
   background-color: $bg-color;
-  color: white;
-  height: 83vh;
+  color: $body-text;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +25,6 @@ $text-color: rgb(79, 205, 255);
       font-weight: 800;
       color: $text-color;
       margin: 0;
-      text-shadow: 0 0 25px rgba(79, 205, 255, 0.6);
     }
 
     h2 {
@@ -34,25 +35,23 @@ $text-color: rgb(79, 205, 255);
 
     p {
       font-size: 1.1rem;
-      color: #ccc;
+      color: $muted-text;
       margin-bottom: 2rem;
     }
 
     .home-btn {
       display: inline-block;
       background-color: $text-color;
-      color: $bg-color;
+      color: #ffffff;
       padding: 0.8rem 2rem;
-      border-radius: 50px;
+      border-radius: 4px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(79, 205, 255, 0.4);
 
       &:hover {
         background-color: color.scale($text-color, $lightness: -15%);
-        box-shadow: 0 0 25px rgba(79, 205, 255, 0.7);
-        transform: scale(1.05);
+        transform: translateY(-2px);
       }
     }
   }

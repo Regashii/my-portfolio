@@ -1,16 +1,20 @@
 @use "sass:color";
 
-$bg-color: #0d1117;
-$text-color: #ffffff;
+$bg-color: #ffffff;
+$text-color: #111111;
+$accent-color: #8b6f5a;
+$muted-text: #4c4641;
+$soft-border: #ded6cf;
+$surface-bg: #f8f5f2;
 
 .projectmain {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90vh;
+  min-height: 115vh;
   background: $bg-color;
-  padding: 2rem 1rem;
-  gap: 2rem;
+  padding: 5rem 1rem 7rem;
+  gap: 3rem;
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
@@ -19,9 +23,10 @@ $text-color: #ffffff;
 
 .projects-nav {
   position: relative;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(79, 205, 255, 0.2);
-  padding: 1rem;
+  background: #ffffff;
+  border-top: 1px solid $soft-border;
+  border-bottom: 1px solid $soft-border;
+  padding: 1.25rem;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -39,38 +44,45 @@ $text-color: #ffffff;
   box-sizing: border-box;
 
   .divproject {
-    background: #1a1a1a;
-    padding: 2rem;
-    border-radius: 16px;
-    color: #fff;
+    background: $surface-bg;
+    padding: 3rem;
+    border-radius: 8px;
+    color: $text-color;
     text-align: justify;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid $soft-border;
     margin: 0 auto;
     width: 100%;
     max-width: 1150px;
     box-sizing: border-box;
 
+    h4 {
+      color: $accent-color;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+    }
+
     h1 {
       font-size: 1.8rem;
       margin-top: 1rem;
+      color: $text-color;
 
       a {
-        color: rgb(79, 205, 255);
+        color: $accent-color;
         font-size: 1rem;
         text-decoration: underline;
         margin-left: 8px;
         transition: color 0.3s ease;
 
         &:hover {
-          color: color.scale(rgb(79, 205, 255), $lightness: 15%);
+          color: color.scale($accent-color, $lightness: -15%);
         }
       }
     }
 
     p {
       margin-top: 10px;
-      line-height: 1.6;
-      color: #ddd;
+      line-height: 1.8;
+      color: $muted-text;
     }
 
     .carousel {
@@ -84,7 +96,8 @@ $text-color: #ffffff;
         height: 500px;
         overflow: hidden;
         border-radius: 12px;
-        box-shadow: 0 4px 30px rgba(79, 205, 255, 0.15);
+        background: #ffffff;
+        border: 1px solid $soft-border;
         margin-bottom: 15px;
         animation: slideIn 0.6s ease-out;
 
@@ -113,7 +126,7 @@ $text-color: #ffffff;
         transition: background 0.3s;
 
         &:hover {
-          background: rgba(255, 255, 255, 0.2);
+          background: $accent-color;
         }
 
         &.prev {
@@ -139,11 +152,11 @@ $text-color: #ffffff;
           transition: background-color 0.3s;
 
           &.active {
-            background-color: #fff;
+            background-color: $accent-color;
           }
 
           &:hover {
-            background-color: #aaa;
+            background-color: #6f5745;
           }
         }
       }
@@ -153,8 +166,8 @@ $text-color: #ffffff;
 
 /* Radio container */
 .radio-container {
-  --main-color: rgb(79, 205, 255);
-  --main-color-opacity: #4fcdff2a;
+  --main-color: #8b6f5a;
+  --main-color-opacity: #8b6f5a24;
   --total-radio: 5;
 
   display: flex;
@@ -188,7 +201,6 @@ $text-color: #ffffff;
         rgba(0, 0, 0, 0) 100%
       );
       transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 0 0 15px var(--main-color);
     }
   }
 
@@ -231,7 +243,7 @@ $text-color: #ffffff;
 /* Tablet */
 @media (max-width: 1024px) {
   .projectmain {
-    padding: 1.5rem;
+    padding: 4rem 1.5rem 5rem;
     box-sizing: border-box;
   }
 
@@ -258,8 +270,8 @@ $text-color: #ffffff;
 /* Mobile */
 @media (max-width: 600px) {
   .projectmain {
-    padding: 0;
-    gap: 0;
+    padding: 3rem 0 4rem;
+    gap: 2rem;
     box-sizing: border-box;
   }
 
@@ -276,15 +288,15 @@ $text-color: #ffffff;
     }
 
     &::-webkit-scrollbar-track {
-      background: rgba(79, 205, 255, 0.05);
+      background: #f3ede8;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: rgba(79, 205, 255, 0.3);
+      background: rgba(139, 111, 90, 0.35);
       border-radius: 2px;
 
       &:hover {
-        background: rgba(79, 205, 255, 0.5);
+        background: rgba(139, 111, 90, 0.55);
       }
     }
   }

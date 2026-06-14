@@ -1,9 +1,11 @@
-$text-color: rgb(79, 205, 255);
-$bg-color: #0d1117;
+$text-color: #8b6f5a;
+$body-text: #111111;
+$bg-color: #ffffff;
+$soft-border: #ded6cf;
 
 nav {
   background-color: $bg-color;
-  color: $text-color;
+  color: $body-text;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,6 +13,7 @@ nav {
   padding: 0 2rem;
   position: relative;
   z-index: 100;
+  border-bottom: 1px solid $soft-border;
 
   header h1 {
     font-size: 1.8rem;
@@ -30,7 +33,7 @@ nav {
         background: none;
         border: none;
         text-decoration: none;
-        color: white;
+        color: $body-text;
         font-size: 1.2rem;
         position: relative;
         transition: color 0.3s ease;
@@ -66,7 +69,7 @@ nav {
     display: none;
     font-size: 1.8rem;
     cursor: pointer;
-    color: white;
+    color: $body-text;
   }
 
   /* --- Mobile --- */
@@ -80,7 +83,7 @@ nav {
       justify-content: flex-start;
       align-items: flex-start;
       padding: 2rem;
-      background-color: #11161c;
+      background-color: #ffffff;
       position: fixed;
       top: 0;
       left: -320px; // start hidden off-screen to the left
@@ -89,6 +92,7 @@ nav {
       transition: left 0.3s ease-in-out;
       z-index: 50;
       overflow-y: auto;
+      border-right: 1px solid $soft-border;
 
       &.active {
         left: 0; // slide in from left
@@ -115,7 +119,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(17, 17, 17, 0.25);
   z-index: 40;
 }
 

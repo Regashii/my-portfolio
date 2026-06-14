@@ -6,7 +6,7 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import resumePDF from "../assets/CED-RESUME.pdf"; // your actual PDF file
 import homeImage from "../assets/homeimage-rbg.png";
 import "../styles/home.scss";
@@ -16,6 +16,11 @@ import Projects from "./projects";
 
 export default function Home() {
   const [showResume, setShowResume] = useState(false);
+
+  // Prevent body scroll when resume modal is open
+  useEffect(() => {
+    document.body.style.overflow = showResume ? "hidden" : "auto";
+  }, [showResume]);
 
   const handleOpenResume = () => setShowResume(true);
   const handleCloseResume = () => setShowResume(false);
