@@ -1,11 +1,9 @@
-@use "sass:color";
-
-$bg-color: #ffffff;
-$text-color: #111111;
-$accent-color: #8b6f5a;
-$muted-text: #4c4641;
-$soft-border: #ded6cf;
-$surface-bg: #f8f5f2;
+$bg-color: var(--section-bg);
+$text-color: var(--text-color);
+$accent-color: var(--accent-color);
+$muted-text: var(--muted-text);
+$soft-border: var(--soft-border);
+$surface-bg: var(--surface-bg);
 
 .projectmain {
   display: flex;
@@ -23,7 +21,7 @@ $surface-bg: #f8f5f2;
 
 .projects-nav {
   position: relative;
-  background: #ffffff;
+  background: $bg-color;
   border-top: 1px solid $soft-border;
   border-bottom: 1px solid $soft-border;
   padding: 1.25rem;
@@ -74,7 +72,7 @@ $surface-bg: #f8f5f2;
         transition: color 0.3s ease;
 
         &:hover {
-          color: color.scale($accent-color, $lightness: -15%);
+          color: var(--accent-hover);
         }
       }
     }
@@ -96,7 +94,7 @@ $surface-bg: #f8f5f2;
         height: 500px;
         overflow: hidden;
         border-radius: 12px;
-        background: #ffffff;
+        background: $bg-color;
         border: 1px solid $soft-border;
         margin-bottom: 15px;
         animation: slideIn 0.6s ease-out;
@@ -166,8 +164,8 @@ $surface-bg: #f8f5f2;
 
 /* Radio container */
 .radio-container {
-  --main-color: #8b6f5a;
-  --main-color-opacity: #8b6f5a24;
+  --main-color: var(--accent-color);
+  --main-color-opacity: color-mix(in srgb, var(--accent-color) 14%, transparent);
   --total-radio: 5;
 
   display: flex;
@@ -288,7 +286,7 @@ $surface-bg: #f8f5f2;
     }
 
     &::-webkit-scrollbar-track {
-      background: #f3ede8;
+      background: var(--hover-surface);
     }
 
     &::-webkit-scrollbar-thumb {

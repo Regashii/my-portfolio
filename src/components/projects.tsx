@@ -152,7 +152,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      (go to the site)
+                      Link to the site
                     </a>
                   ) : null}
                 </h1>

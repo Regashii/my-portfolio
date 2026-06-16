@@ -6,8 +6,6 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
-import { useEffect, useState } from "react";
-import resumePDF from "../assets/CED-RESUME.pdf"; // your actual PDF file
 import homeImage from "../assets/homeimage-rbg.png";
 import "../styles/home.scss";
 import AboutMe from "./about";
@@ -15,22 +13,20 @@ import AppBar from "./appbar";
 import Projects from "./projects";
 
 export default function Home() {
-  const [showResume, setShowResume] = useState(false);
-
-  // Prevent body scroll when resume modal is open
-  useEffect(() => {
-    document.body.style.overflow = showResume ? "hidden" : "auto";
-  }, [showResume]);
-
-  const handleOpenResume = () => setShowResume(true);
-  const handleCloseResume = () => setShowResume(false);
-
   return (
     <>
       <AppBar />
       <main className="home" id="home">
         <section className="image-section">
           <img src={homeImage} alt="home-image" />
+          <div className="image-contact">
+            <div className="info-item">
+              <Mail /> <span>cedrickabines15@gmail.com</span>
+            </div>
+            <div className="info-item">
+              <Phone /> <span>+63 964 995 8624</span>
+            </div>
+          </div>
         </section>
 
         <section className="intro">
@@ -52,9 +48,6 @@ export default function Home() {
             </p>
           </header>
           <div className="buttons">
-            <button className="resume-btn" onClick={handleOpenResume}>
-              Resume
-            </button>
             <aside className="contact-info">
               <div className="social-links">
                 <a
@@ -88,43 +81,8 @@ export default function Home() {
               </div>
             </aside>
           </div>
-          <div className="contact-info">
-            <div className="info-item">
-              <Mail /> <span>cedrickabines15@gmail.com</span>
-            </div>
-            <div className="info-item">
-              <Phone /> <span>+63 964 995 8624</span>
-            </div>
-          </div>
         </section>
       </main>
-
-      {showResume && (
-        <div className="modal-overlay" onClick={handleCloseResume}>
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
-          >
-            <button className="close-btn" onClick={handleCloseResume}>
-              ✕
-            </button>
-            <h2>My Resume</h2>
-            <iframe
-              src={resumePDF + "#toolbar=0"}
-              title="Resume PDF"
-              className="resume-preview"
-              frameBorder="0"
-            ></iframe>
-            <a
-              href={resumePDF}
-              download="Abines_Resume.pdf"
-              className="download-btn"
-            >
-              Download PDF
-            </a>
-          </div>
-        </div>
-      )}
 
       <div id="projects">
         <Projects />

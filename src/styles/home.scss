@@ -1,9 +1,9 @@
-$button-bg-color: #8b6f5a;
-$text-color: #111111;
-$muted-text: #3f3a36;
-$soft-border: #ded6cf;
-$section-bg: #ffffff;
-$surface-bg: #f8f5f2;
+$button-bg-color: var(--accent-color);
+$text-color: var(--text-color);
+$muted-text: var(--muted-text);
+$soft-border: var(--soft-border);
+$section-bg: var(--section-bg);
+$surface-bg: var(--surface-bg);
 
 svg {
   color: $button-bg-color;
@@ -14,6 +14,48 @@ svg {
   background: $section-bg;
   min-height: 110vh;
   padding: 4rem 0 6rem;
+  transition: background-color 0.3s ease;
+
+  .image-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      max-width: 520px;
+    }
+
+    .image-contact {
+      width: 100%;
+      display: flex;
+      // flex-direction: column;
+      gap: 12px;
+      margin-top: 1.5rem;
+      align-items: flex-start;
+      justify-content: center;
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        svg {
+          color: $button-bg-color;
+        }
+
+        span {
+          color: $text-color;
+          font-weight: 500;
+          word-break: break-word;
+        }
+      }
+    }
+  }
 
   .intro {
     display: flex;
@@ -46,7 +88,8 @@ svg {
     .contact-info {
       display: flex;
       gap: 20px;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: flex-start;
 
       .info-item {
         display: flex;
@@ -67,6 +110,7 @@ svg {
       display: flex;
       gap: 20px;
       align-items: center;
+      margin-top: 10px;
 
       .social-links {
         display: flex;
@@ -122,11 +166,6 @@ svg {
       }
     }
 
-    .contact-info {
-      margin-top: 20px;
-      display: flex;
-    }
-
     button {
       display: inline-block;
       padding: 12px 24px;
@@ -138,7 +177,7 @@ svg {
       font-size: 19px;
       cursor: pointer;
       color: $text-color;
-      background: #ffffff;
+      background: $section-bg;
       z-index: 1;
       margin-top: 20px;
 
@@ -189,19 +228,6 @@ svg {
       }
     }
   }
-
-  .image-section {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-  }
 }
 
 /* Modal overlay background */
@@ -218,8 +244,8 @@ svg {
 
 /* Modal box */
 .modal-content {
-  background: #ffffff;
-  color: #000;
+  background: $section-bg;
+  color: $text-color;
   border-radius: 12px;
   padding: 1.5rem;
   width: 80%;
@@ -267,7 +293,7 @@ svg {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #333;
+    color: $text-color;
     cursor: pointer;
     transition: color 0.2s;
 
@@ -291,16 +317,30 @@ svg {
 /* Responsive design */
 @media (max-width: 1024px) {
   .home {
-    flex-direction: column-reverse;
+    flex-direction: column;
     height: auto;
     min-height: auto;
     padding: 3rem 0 5rem;
     text-align: center;
 
+    .image-section,
     .intro {
-      width: 95vw;
-      padding: 20px;
+      width: 100%;
+      padding: 0 20px;
+    }
 
+    .image-section {
+      .image-contact {
+        align-items: center;
+        flex-direction: column;
+      }
+      img {
+        width: 100%;
+        max-width: 480px;
+      }
+    }
+
+    .intro {
       h1 {
         font-size: 2.5rem;
       }
@@ -313,12 +353,8 @@ svg {
       button {
         font-size: 1rem;
       }
-    }
-
-    .image-section {
-      width: 100%;
-      img {
-        width: 80%;
+      .buttons {
+        justify-content: center;
       }
     }
   }

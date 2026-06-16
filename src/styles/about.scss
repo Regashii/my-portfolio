@@ -1,11 +1,11 @@
-$text-color: #8b6f5a;
-$body-text: #111111;
-$muted-text: #4c4641;
-$soft-border: #ded6cf;
-$surface-bg: #f8f5f2;
+$text-color: var(--accent-color);
+$body-text: var(--text-color);
+$muted-text: var(--muted-text);
+$soft-border: var(--soft-border);
+$surface-bg: var(--surface-bg);
 
 .aboutmain {
-  background: #ffffff;
+  background: var(--section-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,7 +81,7 @@ $surface-bg: #f8f5f2;
   width: 100%;
   text-align: center;
   color: $body-text;
-  background: #ffffff;
+  background: var(--section-bg);
   border: 1px solid $soft-border;
   transition: all 0.2s ease;
 
@@ -94,7 +94,7 @@ $surface-bg: #f8f5f2;
 
   &:hover {
     border-color: $text-color;
-    background: #f3ede8;
+    background: var(--hover-surface);
   }
 
   span {
@@ -136,7 +136,7 @@ $surface-bg: #f8f5f2;
 
   &:hover {
     border-color: rgba(139, 111, 90, 0.55);
-    background: #f3ede8;
+    background: var(--hover-surface);
   }
 
   h3 {
@@ -210,7 +210,7 @@ $surface-bg: #f8f5f2;
 /* Education section */
 .education {
   .education-card {
-    background: #ffffff;
+    background: var(--section-bg);
     border-left: 3px solid $text-color;
     padding: 1.2rem 1.5rem;
     border-radius: 4px;
@@ -235,7 +235,7 @@ $surface-bg: #f8f5f2;
 
 /* Seminar carousel */
 .seminar-card {
-  background: #ffffff;
+  background: var(--section-bg);
   border: 1px solid $soft-border;
   border-radius: 6px;
   padding: 2rem;

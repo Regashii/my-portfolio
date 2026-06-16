@@ -1,13 +1,29 @@
 import { useEffect, useState } from "react";
-import "../styles/AppBar.scss";
+import { Menu, Moon, Sun } from "lucide-react";
+import "../styles/appbar.scss";
 
 export default function AppBar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      return savedTheme;
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  });
 
   // Prevent body scroll when sidebar is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const navLinks = [
     { id: 1, name: "Home", sectionId: "home" },
@@ -28,17 +44,19 @@ export default function AppBar() {
 
   return (
     <>
-      <nav>
+      <nav className="appbar">
         <header>
           <h1>Cedrick Abines</h1>
         </header>
 
-        <div
+        <button
           className="menu-toggle"
+          type="button"
           onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="Toggle navigation menu"
         >
-          ☰
-        </div>
+          <Menu />
+        </button>
 
         <ul className={menuOpen ? "active" : ""}>
           {navLinks.map((link) => (
@@ -52,6 +70,20 @@ export default function AppBar() {
             </li>
           ))}
         </ul>
+
+        <button
+          className="theme-toggle"
+          type="button"
+          onClick={() =>
+            setTheme((currentTheme) =>
+              currentTheme === "dark" ? "light" : "dark",
+            )
+          }
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+        >
+          {theme === "dark" ? <Sun /> : <Moon />}
+        </button>
       </nav>
 
       {/* Overlay for dim background */}
