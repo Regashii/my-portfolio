@@ -18,7 +18,6 @@ import {
   ecommerce6,
   ecommerce7,
   ecommerce8,
-  game1,
   game2,
   game3,
   mobile1,
@@ -88,7 +87,7 @@ export default function Projects() {
       id: 5,
       title: "Roblox Game & Blender Modeling",
       description: "I am actively developing a Roblox game and learning Blender to create 3D models and assets for it. I am building my skills through hands-on practice and will share more as the project progresses.",
-      images: [game1, game2, game3],
+      images: [game2, game3],
     },
   ];
   return (

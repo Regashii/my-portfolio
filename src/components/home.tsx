@@ -1,13 +1,13 @@
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import AppBar from "./appbar";
-import game1 from "../assets/games/game1.png";
+import robloxGame from "../assets/games/game2.png";
 import ecommerce from "../assets/ecommerce/ecommerce1.png";
 import thesis from "../assets/thesis/thesis1.jpg";
 import speedFan from "../assets/speed/speed1.png";
 import "../styles/home.scss";
 
 const projects = [
-  { n: "01", title: "Roblox game", kind: "GAME DEVELOPMENT / IN PROGRESS", text: "I am actively developing a Roblox game, shaping the gameplay and building its world. I am also learning Blender to create 3D models and assets.", img: game1, featured: true },
+  { n: "01", title: "Roblox game", kind: "GAME DEVELOPMENT / IN PROGRESS", text: "I am actively developing a Roblox game, shaping the gameplay and building its world. I am also learning Blender to create 3D models and assets.", img: robloxGame, featured: true },
   { n: "02", title: "Baked Goodies", kind: "WEB DEVELOPMENT", text: "A team-built cake ordering website. I worked on the client interface, dashboard, and order management flow.", img: ecommerce },
   { n: "03", title: "Robotic waste collection", kind: "EMBEDDED SYSTEMS / THESIS", text: "A mobile-controlled robot for collecting waste in hard-to-reach areas, combining embedded hardware and an app.", img: thesis },
   { n: "04", title: "Automatic speed fan", kind: "MICROCONTROLLERS", text: "A temperature-sensing fan that adjusts its speed automatically using a microcontroller.", img: speedFan },
