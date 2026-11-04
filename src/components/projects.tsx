@@ -86,9 +86,8 @@ export default function Projects() {
     },
     {
       id: 5,
-      title: "Starting to learn Game Development",
-      description:
-        "I’m starting to learn game development, beginning with Scratch to understand the basics of logic, movement, and design. From there, I’m exploring platforms like Roblox Studio and Unity to gain experience in creating more advanced and interactive games.",
+      title: "Roblox Game & Blender Modeling",
+      description: "I am actively developing a Roblox game and learning Blender to create 3D models and assets for it. I am building my skills through hands-on practice and will share more as the project progresses.",
       images: [game1, game2, game3],
     },
   ];
